@@ -1,5 +1,9 @@
 <?php
 require_once 'header.php';
+require_once './clases/AlineacionBarcos.php';
+$nuevaAlineacion = new app\clases\AlineacionBarcos();
+$alineacionesPosibles = $nuevaAlineacion->getAlienacionesPosibles();
+
 ?>
 <div class="row">
     <div class="col-md-6">
@@ -34,10 +38,12 @@ require_once 'header.php';
                     </td>
                     <td>
                         <select>
-
-                            <option>
-                                Horizontal
-                            </option>
+                            <?php
+                                foreach($alineacionesPosibles as $alineacion )
+                                {
+                                  echo "<option>$alineacion</option>";
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -55,9 +61,12 @@ require_once 'header.php';
                     <td>
                         <select>
 
-                            <option>
-                                Horizontal
-                            </option>
+                            <?php
+                                foreach($alineacionesPosibles as $alineacion )
+                                {
+                                  echo "<option>$alineacion</option>";
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -74,10 +83,12 @@ require_once 'header.php';
                     </td>
                     <td>
                         <select>
-
-                            <option>
-                                Vertical
-                            </option>
+                            <?php
+                                foreach($alineacionesPosibles as $alineacion )
+                                {
+                                  echo "<option>$alineacion</option>";
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -95,9 +106,12 @@ require_once 'header.php';
                     <td>
                         <select>
 
-                            <option>
-                                Horizontal
-                            </option>
+                            <?php
+                                foreach($alineacionesPosibles as $alineacion )
+                                {
+                                  echo "<option>$alineacion</option>";
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -115,9 +129,12 @@ require_once 'header.php';
                     <td>
                         <select>
 
-                            <option>
-                                Horizontal
-                            </option>
+                            <?php
+                                foreach($alineacionesPosibles as $alineacion )
+                                {
+                                  echo "<option>$alineacion</option>";
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>

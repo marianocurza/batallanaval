@@ -24,22 +24,17 @@ $dimensiones = $tableroJuego->getDimensiones();
     </div>
     <div class="col-md-6">
         <table id='tabla_oponente'>
-            <tr>
-                <td>(0,0)</td>
-                <td>(0,1)</td>
-                <td>(0,2)</td>
-                <td>(0,3)</td>
-                <td>(0,4)</td>
-                <td>(0,5)</td>
-            </tr>
-            <tr>
-                <td>(1,0)</td>
-                <td>(1,1)</td>
-                <td>(1,2)</td>
-                <td>(1,3)</td>
-                <td>(1,4)</td>
-                <td>(1,5)</td>
-            </tr>
+            <?php
+                for($fila = 0; $fila<$dimensiones[0]; $fila++)
+                {
+                    echo "<tr>";
+                        for($columna = 0; $columna<$dimensiones[1]; $columna++)
+                        {
+                            echo "<td>($fila,$columna)</td>";
+                        }
+                    echo "</tr>";
+                }
+            ?>
         </table>
     </div>
 </div>

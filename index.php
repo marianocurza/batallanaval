@@ -1,12 +1,8 @@
 <?php
 require_once 'header.php';
-require_once './clases/AlineacionBarcos.php';
 require_once './clases/Tablero.php';
 
 $tableroJuego = new app\clases\Tablero();
-
-$nuevaAlineacion = new app\clases\AlineacionBarcos();
-$alineacionesPosibles = $nuevaAlineacion->getAlienacionesPosibles();
 
 ?>
 <div class="row">
@@ -30,124 +26,25 @@ $alineacionesPosibles = $nuevaAlineacion->getAlienacionesPosibles();
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($tableroJuego->getBarcos() as $barco) :
+                 /* @var $barco \app\clases\Barco */                    
+                ?>
                 <tr class="table-active">
                     <td>
-                        1
+                        #
                     </td>
                     <td>
-                        Barco 1
+                        <?= $barco->getNombre(); ?>
                     </td>
                     <td>
-                        <input name="letra_barco_1" id="letra_barco_1" size="2" type="text" value="<?= isset($_POST['letra_barco_1'])?$_POST['letra_barco_1']:'' ?>"/> -
-                        <input name="numero_barco_1" id="numero_barco_1" size="2" type="text" value="<?= isset($_POST['numero_barco_1'])?$_POST['numero_barco_1']:'' ?>"/>
+                        <?= $barco->getInputLetra($_POST); ?>
+                        <?= $barco->getInputNumero($_POST); ?>
                     </td>
                     <td>
-                        <select name="orientacion_barco_1" id="orientacion_barco_1">
-                            <?php
-                                foreach($alineacionesPosibles as $alineacion )
-                                {
-                                  $seleccionado = isset($_POST['orientacion_barco_1'])&&$_POST['orientacion_barco_1']==$alineacion?'selected':'';
-                                  echo "<option $seleccionado>$alineacion</option>";
-                                }
-                            ?>
-                        </select>
+                        <?= $barco->getSelectOrientacion($_POST); ?>
                     </td>
                 </tr>
-                <tr class="table-active">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        Barco 2
-                    </td>
-                    <td>
-                        <input name="letra_barco_2" id="letra_barco_2" size="2" type="text" value="<?= isset($_POST['letra_barco_2'])?$_POST['letra_barco_2']:'' ?>"/> -
-                        <input name="numero_barco_2" id="numero_barco_2" size="2" type="text" value="<?= isset($_POST['numero_barco_2'])?$_POST['numero_barco_2']:'' ?>"/>
-                    </td>
-                    <td>
-                        <select name="orientacion_barco_2" id="orientacion_barco_2">
-
-                            <?php
-                                foreach($alineacionesPosibles as $alineacion )
-                                {
-                                  $seleccionado = isset($_POST['orientacion_barco_2'])&&$_POST['orientacion_barco_2']==$alineacion?'selected':'';
-                                  echo "<option $seleccionado>$alineacion</option>";
-                                }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="table-active">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        Barco 3
-                    </td>
-                    <td>
-                        <input name="letra_barco_3" id="letra_barco_3" size="2" type="text" value="<?= isset($_POST['letra_barco_3'])?$_POST['letra_barco_3']:'' ?>"/> -
-                        <input name="numero_barco_3" id="numero_barco_3" size="2" type="text" value="<?= isset($_POST['numero_barco_3'])?$_POST['numero_barco_3']:'' ?>" />
-                    </td>
-                    <td>
-                        <select name="orientacion_barco_3" id="orientacion_barco_3">
-                            <?php
-                                foreach($alineacionesPosibles as $alineacion )
-                                {
-                                  $seleccionado = isset($_POST['orientacion_barco_3'])&&$_POST['orientacion_barco_3']==$alineacion?'selected':'';
-                                  echo "<option $seleccionado>$alineacion</option>";
-                                }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="table-active">
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        Barco 4
-                    </td>
-                    <td>
-                        <input name="letra_barco_4" id="letra_barco_4" size="2" type="text" value="<?= isset($_POST['letra_barco_4'])?$_POST['letra_barco_4']:'' ?>"/> -
-                        <input name="numero_barco_4" id="numero_barco_4" size="2" type="text" value="<?= isset($_POST['numero_barco_4'])?$_POST['numero_barco_4']:'' ?>" />
-                    </td>
-                    <td>
-                        <select name="orientacion_barco_4" id="orientacion_barco_4">
-
-                            <?php
-                                foreach($alineacionesPosibles as $alineacion )
-                                {
-                                  $seleccionado = isset($_POST['orientacion_barco_4'])&&$_POST['orientacion_barco_4']==$alineacion?'selected':'';
-                                  echo "<option $seleccionado>$alineacion</option>";
-                                }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="table-active">
-                    <td>
-                        5
-                    </td>
-                    <td>
-                        Barco 5
-                    </td>
-                    <td>
-                        <input name="letra_barco_5" id="letra_barco_5" size="2" type="text" value="<?= isset($_POST['letra_barco_5'])?$_POST['letra_barco_5']:'' ?>"/> -
-                        <input name="numero_barco_5" id="numero_barco_5" size="2" type="text" value="<?= isset($_POST['numero_barco_5'])?$_POST['numero_barco_5']:'' ?>"/>
-                    </td>
-                    <td>
-                        <select name="orientacion_barco_5" id="orientacion_barco_5">
-
-                            <?php
-                                foreach($alineacionesPosibles as $alineacion )
-                                {
-                                  $seleccionado = isset($_POST['orientacion_barco_5'])&&$_POST['orientacion_barco_5']==$alineacion?'selected':'';
-                                  echo "<option $seleccionado>$alineacion</option>";
-                                }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
         <div class="form-group">
@@ -181,6 +78,7 @@ $alineacionesPosibles = $nuevaAlineacion->getAlienacionesPosibles();
                 }
             ?>
         </table>
+        
     </div>
 </div>
 <?php
